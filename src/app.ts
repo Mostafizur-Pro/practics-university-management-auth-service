@@ -1,6 +1,7 @@
 import express, { Application, Request, Response } from 'express'
 import cors from 'cors'
 import { UserRoute } from './modules/user/user.route'
+import userService from './modules/user/user.service'
 
 const app: Application = express()
 
