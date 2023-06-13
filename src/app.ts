@@ -15,8 +15,15 @@ app.use(express.urlencoded({ extended: true }))
 // Application Routes
 app.use('/api/v1/users/', UserRoute)
 
+// Testing
 app.get('/', (req: Request, res: Response) => {
-  res.send('Working successfully')
+  // res.send('Working successfully')
+  throw new Error('Orre baba ')
 })
+
+// Final Code
+// app.get('/', async (req: Request, res: Response) => {
+//   res.send('Working successfully')
+// })
 
 export default app
