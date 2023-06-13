@@ -1,21 +1,18 @@
-import mongoose from "mongoose";
-import config from "./config";
-import app from "./app";
-
-// main().catch((err) => console.log(err));
+import mongoose from 'mongoose'
+import config from './config'
+import app from './app'
+import { logger } from './share/logger'
 
 async function boostrap() {
   try {
-    await mongoose.connect(config.database_url as string);
-    console.log(`Database is Connected successfully`);
+    await mongoose.connect(config.database_url as string)
+    logger.info(`Database is Connected successfully`)
     app.listen(config.port, () => {
-      console.log(`Example app listening on port ${config.port}`);
-    });
+      logger.info(`Example app listening on port ${config.port}`)
+    })
   } catch (err) {
-    console.log("Failed to connection in database");
+    logger.error('Failed to connection in database')
   }
-
-  // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
 }
 
-boostrap();
+boostrap()
